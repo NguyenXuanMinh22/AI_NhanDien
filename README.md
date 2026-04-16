@@ -1,4 +1,5 @@
 # Đề Tài 18: Nhận Dạng Chữ Số Viết Tay
+
 **Môn học:** Trí Tuệ Nhân Tạo  
 **Kỹ thuật:** Logistic Regression + Bộ dữ liệu MNIST
 
@@ -12,13 +13,13 @@ Xây dựng hệ thống nhận dạng chữ số viết tay từ 0 đến 9. Ng
 
 ## 2. Công Nghệ & Thư Viện
 
-| Thành phần | Công nghệ |
-|---|---|
-| Ngôn ngữ | Python 3.8+ |
-| Mô hình | Logistic Regression (scikit-learn) |
-| Dữ liệu | MNIST (70,000 ảnh 28×28) |
-| Giao diện | Tkinter + Pillow |
-| Lưu mô hình | joblib |
+| Thành phần  | Công nghệ                          |
+| ----------- | ---------------------------------- |
+| Ngôn ngữ    | Python 3.8+                        |
+| Mô hình     | Logistic Regression (scikit-learn) |
+| Dữ liệu     | MNIST (70,000 ảnh 28×28)           |
+| Giao diện   | Tkinter + Pillow                   |
+| Lưu mô hình | joblib                             |
 
 ---
 
@@ -32,8 +33,6 @@ digit_recognition/
 ├── digit_model.pkl     # File mô hình đã huấn luyện
 └── README.md
 ```
-
-
 
 ## 4. Phương Pháp
 
@@ -75,27 +74,31 @@ Với bài toán 10 lớp, dùng chiến lược **One-vs-Rest (OvR)**: huấn l
 
 ## 5. Kết Quả
 
-| Chỉ số | Giá trị |
-|---|---|
-| Độ chính xác (test set) | ~92% |
-| Thời gian huấn luyện | ~3–8 phút |
-| Thời gian dự đoán | < 1ms/ảnh |
+| Chỉ số                  | Giá trị   |
+| ----------------------- | --------- |
+| Độ chính xác (test set) | ~92%      |
+| Thời gian huấn luyện    | ~3–8 phút |
+| Thời gian dự đoán       | < 1ms/ảnh |
 
 ## 6. Hướng Dẫn Chạy
 
 ### Bước 1: Cài đặt thư viện
+
 pip install scikit-learn numpy matplotlib pillow joblib seaborn
+pip install scipy
 
 Bước 2: Huấn luyện mô hình
 python train_model.py
 → Tạo ra file `digit_model.pkl`
 
 ### Bước 3: Đánh giá mô hình (tuỳ chọn)
+
 ```bash
 python evaluate_model.py
 ```
 
 ### Bước 4: Chạy ứng dụng vẽ
+
 ```bash
 python draw_predict.py
 ```
@@ -105,16 +108,19 @@ python draw_predict.py
 ## 7. Ưu & Nhược Điểm
 
 **Ưu điểm:**
+
 - Đơn giản, dễ hiểu, phù hợp làm nền tảng học ML
 - Huấn luyện nhanh so với Deep Learning
 - Có thể giải thích được (trọng số tuyến tính)
 
 **Nhược điểm:**
+
 - Không nắm bắt được đặc trưng cục bộ (spatial features) như CNN
 - Nhạy với sự khác biệt về nét vẽ (độ dày, góc nghiêng)
 - Độ chính xác giới hạn ~92% (CNN đạt >99%)
 
 **Hướng cải tiến:**
+
 - Dùng SVM với kernel RBF (≈ 98%)
 - Áp dụng CNN (≈ 99.7%)
 - Data augmentation để cải thiện robustness
